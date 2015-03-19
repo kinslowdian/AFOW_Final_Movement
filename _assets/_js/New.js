@@ -24,6 +24,8 @@ Control.prototype.init = function()
 	this.signal				= "";
 
 	this.keyChange		= false;
+
+	this.walkClass		= "tween-player-XX";
 }
 
 Control.prototype.updateXY = function(x, y)
@@ -59,9 +61,14 @@ Control.prototype.touch_reset = function()
 	this.touchData.y_percent 		= 0;
 }
 
-Control.prototype.walkClassUpdate = function(str)
+Control.prototype.walkClassUpdate = function(newClass)
 {
+	if(newClass !== this.walkClass)
+	{
+		$(".player .player-sprite").removeClass(this.walkClass).addClass(newClass);
 
+		this.walkClass = newClass;
+	}
 }
 
 
@@ -123,6 +130,8 @@ function control_event(event)
 	if(event.type === "keyup")
 	{
 		control.signal = "STILL";
+
+		control.walkClassUpdate("tween-player-XX");
 	}
 
 	if(event.type === "keydown")
@@ -160,7 +169,7 @@ function control_event(event)
 		}
 	}
 
-	trace(control.signal);
+	// trace(control.signal);
 
 	if(control.keyChange)
 	{
@@ -187,6 +196,8 @@ function control_listen()
 			_x = 0;
 			_y = -control.fl.move;
 
+			control.walkClassUpdate("tween-player-UD");
+
 			break;
 		}
 
@@ -194,6 +205,8 @@ function control_listen()
 		{
 			_x = 0;
 			_y = control.fl.move;
+
+			control.walkClassUpdate("tween-player-UD");
 
 			break;
 		}
@@ -203,6 +216,8 @@ function control_listen()
 			_x = -control.fl.move;
 			_y = 0;
 
+			control.walkClassUpdate("tween-player-LR");
+
 			break;
 		}
 
@@ -211,12 +226,16 @@ function control_listen()
 			_x = control.fl.move;
 			_y = 0;
 
+			control.walkClassUpdate("tween-player-LR");
+
 			break;
 		}
 
 		default:
 		{
 			control.signal = "STILL";
+
+			control.walkClassUpdate("tween-player-XX");
 		}
 	}
 
