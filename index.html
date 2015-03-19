@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<title>Movement Like Flash</title>
+
+<link rel="stylesheet" type="text/css" href="_assets/_css/main.css">
+
+</head>
+
+<body onorientationchange="display_rotate(event);">
+
+<div class="wrapper">
+
+	<div class="screen field-floor-ice tweenFlickerFixManual tween-screen"> <!-- tween-screen -->
+
+		<div class="layer-fill tweenFlickerFixManualAll">
+
+			<div class="bgFill-l pixels_forestMassIce collideCheck-field" data-npc="edge"></div>
+			<div class="bgFill-r pixels_forestMassIce collideCheck-field" data-npc="edge"></div>
+
+			<div class="bgFill-t pixels_forestMassIce collideCheck-field" data-npc="edge"></div>
+			<div class="bgFill-b pixels_forestMassIce collideCheck-field" data-npc="edge"></div>
+
+		</div>
+
+		<div class="layer-border">
+
+			<div class="border-m0 border collideCheck-field pixels_forestMassIce" data-npc="edge"></div>
+			<div class="border-m1 border collideCheck-field pixels_forestMassIce" data-npc="edge"></div>
+			<div class="border-m2 border collideCheck-field pixels_forestMassIce" data-npc="edge"></div>
+
+		</div> <!-- .layer-border -->
+
+		<div class="layer-portals">
+
+			<div id="portal_0" class="portal collideCheck-field" data-npc="portal"></div>
+
+			<div id="portal_1" class="portal collideCheck-field" data-npc="portal"></div>
+
+			<div id="portal_2" class="portal collideCheck-field" data-npc="portal"></div>
+
+		</div>
+
+		<div class="layer-enemy">
+
+			<div id="enemy_0" class="enemy collideCheck-field" data-npc="enemy">
+
+				<div class="player-sprite">
+
+					<div class="map-goat-head pixels_map_player tween-map-goat-head"></div>
+
+					<div class="map-goat-hand-L pixels_map_player tween-map-goat-hand-L"></div>
+					<div class="map-goat-hand-R pixels_map_player tween-map-goat-hand-R"></div>
+
+					<div class="map-goat-body pixels_map_player"></div>
+
+					<div class="map-goat-legs pixels_map_player tween-mapPlayerWalk_stop"></div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="layer-player">
+
+			<div class="hitTest collideCheck-player"></div>
+
+			<div class="player tweenFlickerFixManualAll">
+
+				<div class="player-sprite tween-player-XX">
+
+					<div class="map-goat-head pixels_map_player tween-map-goat-head"></div>
+
+					<div class="map-goat-hand-L pixels_map_player tween-map-goat-hand-L"></div>
+					<div class="map-goat-hand-R pixels_map_player tween-map-goat-hand-R"></div>
+
+					<div class="map-goat-body pixels_map_player"></div>
+
+					<div class="map-goat-legs pixels_map_player tween-mapPlayerWalk_loop"></div>
+
+				</div>
+
+			</div> <!-- .player -->
+
+		</div> <!-- .layer-player -->
+
+	</div> <!-- .screen -->
+
+	<div class="layer-ui">
+
+		<div id="touchPad">
+
+			<div class="touchPad_C">
+
+				<div class="touchPad-cont touchPad_C_show"> <!-- touchPad_C_hide -->
+
+					<div class="touchPad-inner">
+
+						<div id="touchPad-U-ind" class="touchPad-feedback touchPad_C_signal_hide"></div>
+						<div id="touchPad-D-ind" class="touchPad-feedback touchPad_C_signal_hide"></div>
+						<div id="touchPad-L-ind" class="touchPad-feedback touchPad_C_signal_hide"></div>
+						<div id="touchPad-R-ind" class="touchPad-feedback touchPad_C_signal_hide"></div>
+
+						<div class="touchPad-base vectors_touch-ui"></div>
+
+					</div>
+
+				</div>
+
+				<div id="touchPad-full"></div>
+
+			</div> <!-- .touchPad_C -->
+
+		</div> <!-- #touchPad -->
+
+	</div> <!-- .layer-ui -->
+
+</div> <!-- .wrapper -->
+
+<div class="status"><p>NULL</p></div>
+
+
+<script type="text/javascript" src="_assets/_js/_libs/_jquery/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="_assets/_js/_libs/_collision/jquery-collision.js"></script>
+
+<script type="text/javascript" src="_assets/_js/Display.js"></script>
+<script type="text/javascript" src="_assets/_js/TouchUI.js"></script>
+
+
+<script type="text/javascript" src="_assets/_js/Setup.js"></script>
+<script type="text/javascript" src="_assets/_js/New.js"></script>
+
+<script type="text/javascript">
+
+	init();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,325 @@
+@charset "UTF-8";
+
+@import url(extras.css);
+@import url(touch.css);
+@import url(new.css);
+
+*
+{
+	margin: 0;
+	padding: 0;
+
+	outline: none;
+	border: none;
+}
+
+.status
+{
+	width: 100px;
+
+	position: absolute;
+
+	font-size: 30px;
+	font-family: sans-serif;
+	font-weight: lighter;
+	color: #fff;
+
+	visibility: hidden;
+}
+
+.status p
+{
+	font-size: 1em;
+	letter-spacing: 0.03em;
+	padding: 0.4em;
+	display: inline-block;
+	background: #000;
+	text-transform: uppercase;
+}
+
+.wrapper
+{
+	width: 100%;
+	height: 100%;
+
+	background: #69D2E7;
+
+	overflow: hidden;
+
+	position: absolute;
+
+	left: 0; right: 0; top: 0; bottom: 0;
+
+	margin: auto;
+}
+
+.screen
+{
+	width: 320px;
+	height: 2000px;
+
+	/*background: #A7DBD8;*/
+
+	position: absolute;
+
+	left: 0; right: 0; top: 0; bottom: 0;
+
+	margin: 0 auto;
+}
+
+.tween-screen
+{
+	-webkit-transition: 600ms linear;
+	transition: 600ms linear;
+}
+
+
+/* ----------------------------- LAYERS */
+
+.layer-player
+{
+	width: inherit;
+	height: inherit;
+
+	position: absolute;
+}
+
+.layer-portals
+{
+	width: inherit;
+	height: inherit;
+
+	position: absolute;
+}
+
+.layer-enemy
+{
+	width: inherit;
+	height: inherit;
+
+	position: absolute;
+}
+
+.layer-ui
+{
+	width: inherit;
+	height: inherit;
+
+	position: absolute;
+}
+
+.layer-fill
+{
+	width: inherit;
+	height: inherit;
+
+	position: absolute;
+}
+
+/* ----------------------------- LAYERS */
+
+
+/* ----------------------------- PLAYER */
+
+.player, .hitTest
+{
+	width: 40px;
+	height: 40px;
+
+/*	background: #F38630;*/
+
+	position: absolute;
+
+
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+}
+
+.tween-player
+{
+	-webkit-transition 	: 200ms ease-in-out;
+	transition 					: 200ms ease-in-out;
+}
+
+.hitTest .debug
+{
+	background: rgba(0, 255, 0, 0.4);
+}
+
+.tween-player-XX
+{
+	-webkit-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+}
+
+.tween-player-UD
+{
+/*	-webkit-animation: tweenPlayerUDFrames 200ms linear infinite;
+	animation: tweenPlayerUDFrames 200ms linear infinite;*/
+}
+
+.tween-player-LR
+{
+	-webkit-animation: tweenPlayerLRFrames 200ms linear infinite;
+	animation: tweenPlayerLRFrames 200ms linear infinite;
+}
+
+@-webkit-keyframes tweenPlayerUDFrames
+{
+	0%		{-webkit-transform: translateX(0px);}
+	25%		{-webkit-transform: translateX(-4px);}
+	50%		{-webkit-transform: translateX(0px);}
+	75%		{-webkit-transform: translateX(4px);}
+	100%	{-webkit-transform: translateX(0px);}
+}
+
+@keyframes tweenPlayerUDFrames
+{
+	0%		{transform: translateX(0px);}
+	25%		{transform: translateX(-4px);}
+	50%		{transform: translateX(0px);}
+	75%		{transform: translateX(4px);}
+	100%	{transform: translateX(0px);}
+}
+
+@-webkit-keyframes tweenPlayerLRFrames
+{
+	0%		{-webkit-transform: translateY(0px);}
+	25%		{-webkit-transform: translateY(-4px);}
+	50%		{-webkit-transform: translateY(0px);}
+	75%		{-webkit-transform: translateY(4px);}
+	100%	{-webkit-transform: translateY(0px);}
+}
+
+@keyframes tweenPlayerLRFrames
+{
+	0%		{transform: translateY(0px);}
+	25%		{transform: translateY(-4px);}
+	50%		{transform: translateY(0px);}
+	75%		{transform: translateY(4px);}
+	100%	{transform: translateY(0px);}
+}
+
+
+
+/* ----------------------------- PLAYER */
+
+
+/* ----------------------------- WALLS */
+
+.layer-border
+{
+	width: inherit;
+	height: inherit;
+
+	position: absolute;
+
+	left: 0; right: 0; top: 0; bottom: 0;
+}
+
+.border
+{
+	position: absolute;
+}
+
+.border-m0
+{
+	width: 160px;
+	height: 120px;
+
+	left: 0;
+	top: 160px;
+}
+
+.border-m1
+{
+	width: 120px;
+	height: 120px;
+
+	left: 200px;
+	top: 160px;
+}
+
+.border-m2
+{
+	width: 320px;
+	height: 160px;
+
+	left: 0px;
+	top: 520px;
+}
+
+/* ----------------------------- WALLS */
+
+.bgFill-l, .bgFill-r
+{
+	position: absolute;
+}
+
+.bgFill-t, .bgFill-b
+{
+	width: inherit;
+
+	position: absolute;
+}
+
+
+/* ----------------------------- TEMP PORTAL */
+
+.portal
+{
+	width: 80px;
+	height: 80px;
+
+	position: absolute;
+
+	background: pink;
+}
+
+#portal_0
+{
+	-webkit-transform : translate(240px, 440px);
+	transform 				: translate(240px, 440px);
+}
+
+#portal_1
+{
+	-webkit-transform : translate(0px, 280px);
+	transform 				: translate(0px, 280px);
+}
+
+#portal_2
+{
+	-webkit-transform : translate(120px, 760px);
+	transform 				: translate(120px, 760px);
+}
+
+/* ----------------------------- TEMP PORTAL */
+
+
+/* ----------------------------- ENEMY */
+
+.enemy
+{
+	width: 40px;
+	height: 40px;
+
+	position: absolute;
+}
+
+#enemy_0
+{
+	-webkit-transform : translate(0px, 120px);
+	transform 				: translate(0px, 120px);
+}
+
+/* ----------------------------- ENEMY */
+
+
+@media screen and (min-width:600px)
+{
+	.status
+	{
+		visibility: visible;
+	}
+}

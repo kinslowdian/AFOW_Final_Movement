@@ -1,0 +1,538 @@
+@charset "UTF-8";
+
+
+	.tweenFlickerFixManual
+	{
+		-webkit-backface-visibility	: hidden;
+		backface-visibility			: hidden;
+
+		/*ADDED NOV 2014*/
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	}
+
+	/*ADDED NOV 2014 HARD FORCE FIX*/
+	.tweenFlickerFixManualAll, .tweenFlickerFixManualAll *
+	{
+		-webkit-backface-visibility	: hidden;
+		backface-visibility			: hidden;
+
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+
+	}
+
+
+
+
+.pixels_forestMassIce
+{
+	background-image: url(../_img/tile_pineTreesMass_ice_1x.png);
+	background-repeat: repeat;
+	background-position: left top;
+	background-size: 240px 240px;
+}
+
+.field-floor-ice
+{
+	background: #b8f5eb;
+}
+
+
+.pixels_map_player
+{
+	background-image: url(../_img/map_playerSprite_1x.png);
+	background-repeat: no-repeat;
+	/* background-position: 0 0; */
+	background-size: 320px 120px;
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 1), all and (min-device-pixel-ratio: 1)
+{
+	.pixels_forestMassIce
+	{
+		background-image: url(../_img/tile_pineTreesMass_ice_1x.png);
+	}
+
+	.pixels_map_player
+	{
+		background-image: url(../_img/map_playerSprite_1x.png);
+	}
+}
+
+@media all and (-webkit-min-device-pixel-ratio: 2), all and (min-device-pixel-ratio: 2)
+{
+	.pixels_forestMassIce
+	{
+		background-image: url(../_img/tile_pineTreesMass_ice_2x.png);
+	}
+
+	.pixels_map_player
+	{
+		background-image: url(../_img/map_playerSprite_2x.png);
+	}
+}
+
+
+/* ----------------------------------------------------------------------- PLAYER */
+
+	#player-block, #preHitTest
+	{
+		width: 40px;
+		height: 40px;
+
+		position: absolute;
+
+		z-index: 1;
+
+		-webkit-transform	: translate(0px, 0px);
+		transform			: translate(0px, 0px);
+	}
+
+	.mapPlayer_head_default
+	{
+		background-position: 0 0;
+	}
+
+	.mapPlayer_head_happy
+	{
+		background-position: -40px 0;
+	}
+
+	.mapPlayer_head_dead
+	{
+		background-position: -80px 0;
+	}
+
+	.mapPlayer_head_fear
+	{
+		background-position: -120px 0;
+	}
+
+
+	#player-block .map-goat
+	{
+		width: inherit;
+		height: inherit;
+
+		/*opacity: 0;*/
+	}
+
+	.tween-map-goat
+	{
+/*		-webkit-transition	: opacity 200ms linear;
+		transition			: opacity 200ms linear;*/
+
+		-webkit-transition	: 200ms linear;
+		transition			: 200ms linear;
+	}
+
+	.player-sprite
+	{
+		width: inherit;
+		height: inherit;
+
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+	}
+
+	.player-sprite .map-goat-head
+	{
+		width: inherit;
+		height: inherit;
+
+		position: absolute;
+
+		z-index: 2;
+	}
+
+	.player-sprite .map-goat-hand-L
+	{
+		width: inherit;
+		height: inherit;
+
+		background-position: 0px -40px;
+
+		position: absolute;
+
+		z-index: 3;
+	}
+
+	.player-sprite .map-goat-hand-R
+	{
+		width: inherit;
+		height: inherit;
+
+		background-position: -40px -40px;
+
+		position: absolute;
+
+		z-index: 3;
+	}
+
+	.player-sprite .map-goat-body
+	{
+		width: inherit;
+		height: inherit;
+
+		background-position: -160px 0px;
+
+		position: absolute;
+
+		z-index: 1;
+	}
+
+	.player-sprite .map-goat-legs
+	{
+		width: inherit;
+		height: inherit;
+
+		background-position: 0 -80px;
+
+		position: absolute;
+
+		z-index: 0;
+	}
+
+
+	.tween-map-goat-head
+	{
+		-webkit-animation	: tweenMapGoatHeadFrames 400ms ease-in-out infinite;
+		animation			: tweenMapGoatHeadFrames 400ms ease-in-out infinite;
+	}
+
+	@-webkit-keyframes tweenMapGoatHeadFrames
+	{
+		0%		{-webkit-transform: translateY(0px);}
+		50%		{-webkit-transform: translateY(-2px);}
+		100%	{-webkit-transform: translateY(0px);}
+	}
+
+	@keyframes tweenMapGoatHeadFrames
+	{
+		0%		{transform: translateY(0px);}
+		50%		{transform: translateY(-2px);}
+		100%	{transform: translateY(0px);}
+	}
+
+	.tween-map-goat-hand-L
+	{
+		-webkit-animation	: tweenMapGoatHandL_Frames 600ms linear infinite;
+		animation			: tweenMapGoatHandL_Frames 600ms linear infinite;
+	}
+
+	@-webkit-keyframes tweenMapGoatHandL_Frames
+	{
+		0%		{-webkit-transform: translateY(0px);}
+		50%		{-webkit-transform: translateY(-2px);}
+		100%	{-webkit-transform: translateY(0px);}
+	}
+
+	@keyframes tweenMapGoatHandL_Frames
+	{
+		0%		{transform: translateY(0px);}
+		50%		{transform: translateY(-2px);}
+		100%	{transform: translateY(0px);}
+	}
+
+	.tween-map-goat-hand-R
+	{
+		-webkit-animation	: tweenMapGoatHandR_Frames 600ms linear infinite;
+		animation			: tweenMapGoatHandR_Frames 600ms linear infinite;
+	}
+
+	@-webkit-keyframes tweenMapGoatHandR_Frames
+	{
+		0%		{-webkit-transform: translateY(-2px);}
+		50%		{-webkit-transform: translateY(0px);}
+		100%	{-webkit-transform: translateY(-2px);}
+	}
+
+	@keyframes tweenMapGoatHandR_Frames
+	{
+		0%		{transform: translateY(-2px);}
+		50%		{transform: translateY(0px);}
+		100%	{transform: translateY(-2px);}
+	}
+
+	.actionCloud
+	{
+		width: 40px;
+		height: 40px;
+
+		position: absolute;
+
+		z-index: 4;
+	}
+
+	.tween-actionCloud
+	{
+		-webkit-transition: opacity 200ms linear;
+		transition: opacity 200ms linear;
+	}
+
+	.actionCloudMain
+	{
+		width: 120px;
+		height: 120px;
+
+		visibility: hidden;
+
+		position: absolute;
+
+		-webkit-transform: translate(-40px, -40px);
+		transform: translate(-40px, -40px);
+	}
+
+	.actionCloudMain-0
+	{
+		z-index: 1;
+	}
+
+	.actionCloudMain-1
+	{
+		z-index: 0;
+	}
+
+	.actionCloudSprite-outer
+	{
+		width: inherit;
+		height: inherit;
+
+		visibility: hidden;
+
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+
+		opacity: 0;
+
+		-webkit-transform: scale(0);
+		transform: scale(0);
+	}
+
+	.actionCloudSprite-inner
+	{
+		width: inherit;
+		height: inherit;
+
+		visibility: hidden;
+
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+	}
+
+	.tween-actionCloudSpriteOuter
+	{
+		visibility: visible;
+
+		-webkit-animation: tweenActionCloudSpriteOuterFrames 300ms ease-in-out forwards;
+		animation: tweenActionCloudSpriteOuterFrames 300ms ease-in-out forwards;
+	}
+
+	@-webkit-keyframes tweenActionCloudSpriteOuterFrames
+	{
+		0%		{-webkit-transform: scale(0); opacity: 0;}
+		50%		{-webkit-transform: scale(4); opacity: 1;}
+		100%	{-webkit-transform: scale(1); opacity: 1;}
+	}
+
+	@keyframes tweenActionCloudSpriteOuterFrames
+	{
+		0%		{transform: scale(0); opacity: 0;}
+		50%		{transform: scale(4); opacity: 1;}
+		100%	{transform: scale(1); opacity: 1;}
+	}
+
+	.tween-actionCloudSpriteOuterAlt
+	{
+		visibility: visible;
+
+		-webkit-animation: tweenActionCloudSpriteOuterAltFrames 600ms ease-in-out forwards;
+		animation: tweenActionCloudSpriteOuterAltFrames 600ms ease-in-out forwards;
+	}
+
+	@-webkit-keyframes tweenActionCloudSpriteOuterAltFrames
+	{
+		0%		{-webkit-transform: scale(0) rotate(0deg); opacity: 0;}
+		50%		{-webkit-transform: scale(8) rotate(180deg); opacity: 1;}
+		100%	{-webkit-transform: scale(0) rotate(360deg); opacity: 0;}
+	}
+
+	@keyframes tweenActionCloudSpriteOuterAltFrames
+	{
+		0%		{transform: scale(0) rotate(0deg); opacity: 0;}
+		50%		{transform: scale(8) rotate(180deg); opacity: 1;}
+		100%	{transform: scale(0) rotate(360deg); opacity: 0;}
+	}
+
+	.tween-actionCloudSpriteInner
+	{
+		visibility: visible;
+
+		-webkit-animation: tweenActionCloudSpriteInnerFrames 200ms ease-in-out infinite;
+		animation: tweenActionCloudSpriteInnerFrames 200ms ease-in-out inherit;
+	}
+
+	@-webkit-keyframes tweenActionCloudSpriteInnerFrames
+	{
+		0%		{-webkit-transform: scale(0.8);}
+		50%		{-webkit-transform: scale(1);}
+		100%	{-webkit-transform: scale(0.8);}
+	}
+
+	@keyframes tweenActionCloudSpriteInnerFrames
+	{
+		0%		{transform: scale(0.8);}
+		50%		{transform: scale(1);}
+		100%	{transform: scale(0.8);}
+	}
+
+	.actionCloud-color
+	{
+		background-position: 0 0;
+	}
+
+	.actionCloud-white
+	{
+		background-position: -120px 0;
+	}
+
+	.tween-fieldSmash
+	{
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+
+		-webkit-animation: tweenFieldSmashFrames 200ms linear forwards;
+		animation: tweenFieldSmashFrames 200ms linear forwards;
+	}
+
+	@-webkit-keyframes tweenFieldSmashFrames
+	{
+		0%		{-webkit-transform: translateX(0px) rotate(0deg);}
+		25%		{-webkit-transform: translateX(-40px) rotate(-6deg);}
+		50%		{-webkit-transform: translateX(0px) rotate(0deg);}
+		75%		{-webkit-transform: translateX(40px) rotate(6deg);}
+		100%	{-webkit-transform: translateX(0px) rotate(0deg);}
+	}
+
+	@keyframes tweenFieldSmashFrames
+	{
+		0%		{transform: translateX(0px) rotate(0deg);}
+		25%		{transform: translateX(-40px) rotate(-6deg);}
+		50%		{transform: translateX(0px) rotate(0deg);}
+		75%		{transform: translateX(40px) rotate(6deg);}
+		100%	{transform: translateX(0px) rotate(0deg);}
+	}
+
+	/*---------------------MOVEMENT & CONTROL*/
+
+	.tween-player-block
+	{
+		-webkit-transition	: -webkit-transform 70ms linear; /*140ms*/
+		transition			: transform 70ms linear; /*140ms*/
+	}
+
+	.tween-player-walkX
+	{
+		-webkit-transform-origin: 50% 100%;
+		transform-origin: 50% 100%;
+
+		-webkit-animation	: tweenPlayerWalkX_Frames 140ms linear infinite; /*270ms*/
+		animation			: tweenPlayerWalkX_Frames 140ms linear infinite; /*270ms*/
+	}
+
+	@-webkit-keyframes tweenPlayerWalkX_Frames
+	{
+		0%		{-webkit-transform: rotate(0deg);}
+		25%		{-webkit-transform: rotate(-10deg);}
+		50% 	{-webkit-transform: rotate(0deg);}
+		75%		{-webkit-transform: rotate(10deg);}
+		100% 	{-webkit-transform: rotate(0deg);}
+	}
+
+	@keyframes tweenPlayerWalkX_Frames
+	{
+		0%		{transform: rotate(0deg);}
+		25%		{transform: rotate(-10deg);}
+		50% 	{transform: rotate(0deg);}
+		75%		{transform: rotate(10deg);}
+		100% 	{transform: rotate(0deg);}
+	}
+
+	.tween-player-walkY
+	{
+		-webkit-transform-origin: 50% 100%;
+		transform-origin: 50% 100%;
+
+		-webkit-animation	: tweenPlayerWalkY_Frames 140ms linear infinite; /*270ms*/
+		animation			: tweenPlayerWalkY_Frames 140ms linear infinite; /*270ms*/
+	}
+
+	@-webkit-keyframes tweenPlayerWalkY_Frames
+	{
+		0%		{-webkit-transform: translateY(0px);}
+		25%		{-webkit-transform: translateY(-4px);}
+		50% 	{-webkit-transform: translateY(0px);}
+		75%		{-webkit-transform: translateY(4px);}
+		100% 	{-webkit-transform: translateY(0px);}
+	}
+
+	@keyframes tweenPlayerWalkY_Frames
+	{
+		0%		{transform: translateY(0px);}
+		25%		{transform: translateY(-4px);}
+		50% 	{transform: translateY(0px);}
+		75%		{transform: translateY(4px);}
+		100% 	{transform: translateY(0px);}
+	}
+
+	.tween-mapPlayerWalk_loop
+	{
+		/*SEE responsive.css*/
+
+		-webkit-animation	: tweenMapPlayerWalkLoopFrames 70ms steps(8) 0 infinite; /* 90ms */
+		animation			: tweenMapPlayerWalkLoopFrames 70ms steps(8) 0 infinite; /* 90ms */
+	}
+
+	.tween-mapPlayerWalk_stop
+	{
+		background-position: 0 -80px;
+	}
+
+	@-webkit-keyframes tweenMapPlayerWalkLoopFrames
+	{
+		from	{background-position: 0 -80px;}
+		to		{background-position: -320px -80px;}
+	}
+
+	@keyframes tweenMapPlayerWalkLoopFrames
+	{
+		from	{background-position: 0 -80px;}
+		to		{background-position: -320px -80px;}
+	}
+
+	.tween-map-goat
+	{
+		-webkit-transition	: 200ms linear;
+		transition			: 200ms linear;
+	}
+
+	.portal_suck_in
+	{
+		-webkit-transform: scale(0.2) rotate(360deg);
+		transform: scale(0.2) rotate(360deg);
+
+		opacity: 0;
+	}
+
+	.portal_suck_out
+	{
+		-webkit-transform: scale(1) rotate(0deg);
+		transform: scale(1) rotate(0deg);
+
+		opacity: 1;
+	}
+
+	/*---------------------MOVEMENT & CONTROL*/
+
+/* ----------------------------------------------------------------------- PLAYER */
