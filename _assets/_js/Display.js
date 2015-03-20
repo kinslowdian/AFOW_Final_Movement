@@ -104,15 +104,13 @@ function display_centerLevel()
 
 	if(display.focus_y != display.focusCurrent_y)
 	{
-		css = {
-						"-webkit-transform" : "translateY(" + display.focus_y + "px)",
-						"transform" 				: "translateY(" + display.focus_y + "px)"
-					};
+		css = "translateY(" + display.focus_y + "px)";
 
 		$(".tween-screen")[0].addEventListener("webkitTransitionEnd", display_centerLevelEvent, false);
 		$(".tween-screen")[0].addEventListener("transitionend", display_centerLevelEvent, false);
 
-		$(".screen").css(css);
+		$(".screen")[0].style.webkitTransform 	= css;
+		$(".screen")[0].style.transform			= css;
 	}
 
 }

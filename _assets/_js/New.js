@@ -26,6 +26,9 @@ Control.prototype.init = function()
 	this.keyChange		= false;
 
 	this.walkClass		= "tween-player-XX";
+	
+	this.scrollCount	= 0;
+	this.scrollCountMax	= 3;
 }
 
 Control.prototype.updateXY = function(x, y)
@@ -255,15 +258,13 @@ function control_cssAdd()
 {
 	var css;
 	var reset_hitTest = false;
-
-
-	css = {
-					"-webkit-transform" : "translate(" + control.fl.x_target + "px, " + control.fl.y_target + "px)",
-					"transform" 				: "translate(" + control.fl.x_target + "px, " + control.fl.y_target + "px)"
-				};
-
-	$(".hitTest").css(css);
-
+	
+	
+	css = "translate(" + control.fl.x_target + "px, " + control.fl.y_target + "px)";
+	
+	$(".hitTest")[0].style.webkitTransform 	= css;
+	$(".hitTest")[0].style.transform		= css;
+	
 	hitTest_check();
 
 	if(HIT_TEST.hit_edge)
@@ -275,23 +276,23 @@ function control_cssAdd()
 	{
 		control.fl.x_safe = control.fl.x_target;
 		control.fl.y_safe = control.fl.y_target;
-
-		$(".player").css(css);
+		
+		$(".player")[0].style.webkitTransform 	= css;
+		$(".player")[0].style.transform			= css;
 	}
 
 	if(reset_hitTest)
 	{
 		reset_hitTest = false;
-
-		css = {
-						"-webkit-transform" : "translate(" + control.fl.x_safe + "px, " + control.fl.y_safe + "px)",
-						"transform" 				: "translate(" + control.fl.x_safe + "px, " + control.fl.y_safe + "px)"
-					};
+		
+		css = "translate(" + control.fl.x_safe + "px, " + control.fl.y_safe + "px)";
 
 		control.fl.x_target = control.fl.x_safe;
 		control.fl.y_target = control.fl.y_safe;
-
-		$(".hitTest").css(css);
+		
+		$(".hitTest")[0].style.webkitTransform 	= css;
+		$(".hitTest")[0].style.transform		= css;
+		
 		hitTest_init();
 
 		control.animate = false;
@@ -307,7 +308,17 @@ function control_cssAddEvent(event)
 
 	if(control.signal === "UP" || control.signal === "DOWN")
 	{
-		display_centerLevel();
+		if(control.scrollCount < control.scrollCountMax)
+		{
+			control.scrollCount++;
+		}
+		
+		if(control.scrollCount >= control.scrollCountMax)
+		{
+			control.scrollCount = 0;
+			
+			display_centerLevel();
+		}
 	}
 
 	control_listen();
